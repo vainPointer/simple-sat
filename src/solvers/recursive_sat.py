@@ -21,9 +21,10 @@ def solve(instance, watchlist, assignment, d, verbose):
             print('Trying {} = {}'.format(instance.variables[d], a),
                   file=stderr)
         assignment[d] = a
+        x = (d << 1) | a
         if update_watchlist(instance,
                             watchlist,
-                            (d << 1) | a,
+                            x ^ 1,
                             assignment,
                             verbose):
             for a in solve(instance, watchlist, assignment, d + 1, verbose):

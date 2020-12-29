@@ -37,8 +37,9 @@ def solve(instance, watchlist, assignment, d, verbose):
                 # Set the bit indicating a has been tried for d
                 state[d] |= 1 << a
                 assignment[d] = a
+                x = (d << 1) | a
                 if not update_watchlist(instance, watchlist,
-                                        d << 1 | a,
+                                        x ^ 1,
                                         assignment,
                                         verbose):
                     assignment[d] = None

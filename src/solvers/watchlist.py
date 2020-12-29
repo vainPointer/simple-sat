@@ -42,7 +42,7 @@ def update_watchlist(instance,
         for alternative in clause:
             v = alternative >> 1
             a = alternative & 1
-            if assignment[v] is None or assignment[v] == a ^ 1:
+            if assignment[v] is None or assignment[v] == a:
                 found_alternative = True
                 del watchlist[false_literal][0]
                 watchlist[alternative].append(clause)

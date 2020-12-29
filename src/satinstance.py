@@ -57,7 +57,7 @@ class SATInstance(object):
         for a, v in ((a, v) for a, v in zip(assignment, self.variables)
                      if v.startswith(starting_with)):
             if a == 0 and not brief:
-                literals.append('~' + v)
-            elif a:
                 literals.append(v)
+            elif a:
+                literals.append("~"+v)
         return ' '.join(literals)
